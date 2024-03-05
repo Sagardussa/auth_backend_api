@@ -1,9 +1,9 @@
 var createError = require('http-errors');
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-// const cors = require("cors");
+const cors = require("cors");
 var express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -19,7 +19,7 @@ var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 
 var app = express();
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 dotenv.config();
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -31,23 +31,14 @@ app.use(function(req, res, next) {
   next();
 });
 
-// app.use(
-//   cors({
-//     // origin:'http://localhost:4200',
-//     origin: process.env.LIVE_URL,
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    // origin:'http://localhost:4200',
+    origin: process.env.LIVE_URL,
+    credentials: true,
+  })
+);
 
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept,Authorization"
-//   );
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE,OPTIONS');
-//   next();
-// });
 
 
 // view engine setup
@@ -106,10 +97,5 @@ const connectMongooDB = async () => {
 };
 
 connectMongooDB();
-
-// app.listen(process.env.PORT, () => {
-//   connectMongooDB();
-//   console.log("connected to backend");
-// });
 
 module.exports = app;
