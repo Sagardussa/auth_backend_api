@@ -12,10 +12,8 @@ const url = require('url')
 // } from "../controllers/role.controller.js";
 
 var {
-  createproduct,
   getAllProduct,
   getById,
-  getByserach,
 } = require("../controllers/product.controller.js");
 const { request } = require("http");
 // var createRole = require('../controllers/role.controller.js');
@@ -28,7 +26,7 @@ var router = express.Router();
 
 ///create new role in DB
 // router.post("/create", verifyAdmin, createRole);
-router.post("/create", createproduct);
+// router.post("/create", createproduct);
 
 //update role in DB
 // router.put("/update/:id", verifyAdmin, updateRole);
@@ -39,12 +37,6 @@ router.get("/getall", getAllProduct);
 //get productSerachgetById
 
 router.get("/detail/:id", getById);
-
-///
-router.get('/search/:name',getByserach)
-
-//delete Role
-// router.delete("/deleteRole/:id", deleteRole);
 
 // export default router;
 module.exports = router;
