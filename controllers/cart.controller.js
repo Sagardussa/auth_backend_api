@@ -6,7 +6,7 @@
 var { createSuccess } = require("../utils/success.js");
 var { createError } = require("../utils/error.js");
 const Products = require("../models/Products.js");
-const Cart = require("../models/cart.js");
+const Cart = require("../models/Cart.js");
 
 const addToCart = async (req, res, next) => {
   try {
