@@ -166,7 +166,7 @@ const sendEmail = async (req, res, next) => {
 
   mailTransporter.sendMail(mailDetails, async (err, data) => {
     if (err) {
-      console.log("err", err);
+      // console.log("err", err);
       return next(createError(500, "Something went wrong while sending mail!"));
     } else {
       await newToken.save();

@@ -38,5 +38,7 @@ router.get("/getall", getAllProduct);
 
 router.get("/detail/:id", getById);
 
+
+
 // export default router;
 module.exports = router;

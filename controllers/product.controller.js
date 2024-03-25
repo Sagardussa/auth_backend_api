@@ -23,9 +23,9 @@ var { createError } = require("../utils/error.js");
 
 const getById = async (req, res, next) => {
   try {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     const product = await Products.findById(req.params.id);
-    console.log("user", product);
+    // console.log("user", product);
     if (!product) {
       return next(createError(404, "product not found"));
     }
@@ -43,6 +43,8 @@ const getAllProduct = async (req, res, next) => {
     return next(createError(500, "Internal serve error"));
   }
 };
+
+
 
 exports.getAllProduct = getAllProduct;
 exports.getById = getById;

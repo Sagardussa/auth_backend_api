@@ -12,6 +12,7 @@ var roleRoute = require('./routes/role');
 var authRoute = require('./routes/auth');
 var userRoute = require('./routes/user');
 var productRoute = require('./routes/product');
+var cartRoute = require('./routes/cart');
 
 
 
@@ -58,6 +59,8 @@ app.use("/api/role", roleRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/product", productRoute);
+app.use("/api/cart", cartRoute);
+
 // app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
